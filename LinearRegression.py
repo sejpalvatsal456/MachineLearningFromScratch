@@ -15,7 +15,7 @@ class LinearRegression:
       error = np.sum((y-y_pred)**2)/n_sample
       print(error)
       dw = 2*np.dot(X.T, (y_pred-y).reshape(-1,1))/n_sample
-      db = 2*np.sum(y-y_pred)/n_sample
+      db = 2*np.sum(y_pred-y)/n_sample
       self.weights = self.weights - lr*dw
       self.bias = self.bias - lr*db
     self.y_pred_ = y_pred
