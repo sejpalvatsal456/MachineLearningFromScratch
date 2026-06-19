@@ -11,9 +11,9 @@ class LinearRegression:
     self.weights = np.zeros((n_features, 1))
     self.bias = 0
     for _ in range(epochs):
-      y_pred = (np.dot(X, self.weights) + self.bias).reshape(-1, 1)
+      y_pred = np.dot(X, self.weights) + self.bias
       error = np.sum((y-y_pred)**2)/n_sample
-      print(error)
+      print("Error: " , error)
       dw = 2*np.dot(X.T, (y_pred-y).reshape(-1,1))/n_sample
       db = 2*np.sum(y_pred-y)/n_sample
       self.weights = self.weights - lr*dw
